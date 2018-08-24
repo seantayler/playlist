@@ -1,11 +1,19 @@
-header {
+#header1 {
   background-color: #999691;
   height: 6vh;
 }
 
+#header2 {
+  background-color: #999691;
+  color: white;
+  font-size: 20px; 
+  height: 15vh;
+  justify-content: flex-end;
+}
+
 main {
   background-color: #f7f7f7;
-  height: 84vh;
+  height: 75vh;
 }
 
 footer {
