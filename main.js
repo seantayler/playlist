@@ -1,7 +1,9 @@
 const choose = document.getElementById('chooseButton');
-const clear = document.getElementById('chooseButton');
-const submit = document.getElementById('chooseButton');
+const clear = document.getElementById('clearButton');
+const submit = document.getElementById('submitButton');
 const scroll = document.getElementById('scroll');
+const box = document.getElementById('box');
+
 let img1 = document.getElementById('img1');
 let img2 = document.getElementById('img2');
 let img3 = document.getElementById('img3');
@@ -25,20 +27,43 @@ let img3 = document.getElementById('img3');
 //   });
 // });
 
-//Submit a GET request on playlist page: receive data and append to scroll list
-
 document.addEventListener('DOMContentLoaded', () => {
   axios.get('https://lit-fortress-6467.herokuapp.com/object')
   .then(response => {
     let data = response.data.results;
-    console.log(data)
 
-    data.forEach(function (item){
-      scroll.appendChild(data.item)
+    data.forEach(function(item) {
+      let childDiv = `<div class=album-container>
+        <img src=./images/${item.cover_art} id=${item.id} class=albums>
+      </div>`
+      scroll.innerHTML += childDiv;
+
     });
+  });
+});
+
+scroll.addEventListener('click', (e) => {
+  axios.get('https://lit-fortress-6467.herokuapp.com/object')
+  .then(response => {
+    let data = response.data.results;
+    data.forEach(function(item) {
+      let childDiv = `<div>${item.artist}: ${item.title}</div>`
+
+      if (box.childElementCount <= 10){
+        if (parseInt(e.target.id) === item.id){
+          box.innerHTML += childDiv;
+        }
+      }
+      console.log(box.childElementCount)
+    })
 
   });
-
 });
+
+//Clear Tracks Button
+
+clear.addEventListener('click', (e) => {
+  box.innerHTML = ''
+})
 
 //Submit a POST request on playlist page: receive a response and append the data

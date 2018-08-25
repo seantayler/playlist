@@ -77,7 +77,7 @@ footer {
   margin: auto;
 }
 
-.box {
+#box {
   margin: 20px 60px;
   border: solid black 2px;
   height: 30vh;
@@ -88,5 +88,15 @@ footer {
   margin: 0px 60px;
   height: 15vh;
   align-items: center;
-  overflow: scroll; 
+  overflow: scroll;
+}
+
+.album-container {
+  margin: auto;
+}
+
+.albums {
+  max-width: 75px;
+  max-height: 75px;
+  margin-top: 5px;
 }
