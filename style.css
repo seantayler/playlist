@@ -11,6 +11,11 @@
   justify-content: flex-end;
 }
 
+#main {
+  background-color: #f7f7f7;
+  height: 84vh;
+}
+
 main {
   background-color: #f7f7f7;
   height: 75vh;
@@ -107,5 +112,5 @@ footer {
   font-size: 20px;
   align-self: center;
   margin-left: 20px;
-  transition: ease-out; 
+  transition: ease-out;
 }
